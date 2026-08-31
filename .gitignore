@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+data/raw/
+chromadb/
+results/runs/
+notebooks/.ipynb_checkpoints/

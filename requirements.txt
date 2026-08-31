@@ -1,0 +1,9 @@
+# Environment configuration
+python-dotenv
+
+# Testing
+pytest
+
+# Code formatting
+black
+isort
