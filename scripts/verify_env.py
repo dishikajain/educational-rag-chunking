@@ -47,5 +47,5 @@ except Exception as e:
     sys.exit(1)
 
 print("\n--- Checklist for future phases ---")
-print("Not yet installed (expected): pymupdf, sentence-transformers, chromadb, google-genai, streamlit")
+print("Not yet installed (expected): sentence-transformers, chromadb, google-genai, streamlit")
 print("\nEnvironment verification passed!")

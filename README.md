@@ -9,7 +9,7 @@
 | Phase | Title | Status |
 |---|---|---|
 | 1 | Environment Setup | In Progress |
-| 2 | PDF Text Extraction | Not started |
+| 2 | PDF Text Extraction | Completed |
 | 3 | Preprocessing | Not started |
 | 4 | Baseline Chunking | Not started |
 | 5 | ELUC Design | Not started |

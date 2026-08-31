@@ -7,3 +7,4 @@ pytest
 # Code formatting
 black
 isort
+pymupdf
