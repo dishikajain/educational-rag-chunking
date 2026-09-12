@@ -1,0 +1,46 @@
+# Phase 4 Baseline Chunking Configuration - OpenStax Biology 2e
+# =============================================================
+# Strategy: Fixed-size sliding-window (structure-blind baseline arm)
+# Calibration date: 2026-09-12
+# Calibration method: 75th percentile of Phase 3 PreprocessedBlock character lengths,
+#   measured from Ch 1-5 body pages (PDF pages 31-171, 141 pages, 1416 output blocks).
+#
+# MEASURED CORPUS STATISTICS (Phase 3 output, Ch 1-5):
+#   Output blocks:       1416
+#   Block length p25:      51 chars
+#   Block length p50:     120 chars
+#   Block length p75:     364 chars  ← basis for chunk_size
+#   Block length p90:     662 chars
+#   Mean block length:    252.7 chars
+#   full_text length:     360,640 chars
+#
+# DERIVED PARAMETERS:
+#   chunk_size    = round(364 / 50) * 50 = 350
+#   chunk_overlap = round((350 // 10) / 10) * 10 = 40
+#   min_chunk_size = 350 // 5 = 70
+#   stride        = 350 - 40 = 310
+#   estimated chunks: ~1163
+#
+# RESEARCH DECISIONS (approved 2026-09-12):
+#   R1: chunk_size in characters (not tokens) — decoupled from Phase 7 model choice
+#   R2: No boundary snapping — baseline is structure-blind; no word/sentence/paragraph snap
+#   R3: Single chunk_size for formal experiment — no grid search ablation
+#
+# THIS FILE IS FROZEN. Do not modify after formal experiment begins.
+# =============================================================
+
+strategy: baseline_fixed_size
+
+# Primary chunking parameters (frozen from calibration)
+chunk_size: 350
+chunk_overlap: 40
+min_chunk_size: 70
+
+# Reproducibility metadata
+corpus_name: openstax_biology2e
+corpus_chapters:
+- 1
+- 2
+- 3
+- 4
+- 5
