@@ -1,0 +1,73 @@
+# Phase 3 Preprocessing Configuration - OpenStax Biology 2e
+# ============================================================
+# Calibration tool: calibration_tool_run2.py (Phase 3 v3 spec)
+# Sample: 20 stratified pages from Ch 1-5 body (PDF pages 31-171)
+# PDF verified: 1475 pages | text-selectable | Greek alpha/beta extractable
+# Calibration date: 2026-09-12
+#
+# CORPUS FINDINGS (anomalies documented):
+#   1. Ch opener blocks merge number+title: CHAPTER 1 The Study of Life at 15.55pt
+#      (ratio=1.73x body). Classifies as HEADING_2. CHAPTER_NUMBER label will
+#      not fire for this corpus (no separate large numeral display blocks).
+#   2. Sidebar label blocks (e.g. VISUAL CONNECTION) are narrow (~129pt wide).
+#      full_width_threshold applies to sidebar BODY content blocks (~467pt wide).
+#      Sidebar detection uses label text match (sidebar_labels) as primary signal.
+#   3. Footer: Access for free at openstax.org at y0=758.5pt on left-hand pages.
+#      Right-hand page numbers appear at y0=24.1pt (same zone as running header).
+#   4. gap_line_pt=0.90 is genuine: PyMuPDF reports 0.90pt between adjacent
+#      same-column continuation blocks (tight 120% line spacing at 9pt body).
+#   5. Chapter heading sizes observed: 15.55pt (ch opener), 12.96pt (section),
+#      10.80pt (subsection/callout). No HEADING_1 (18.7pt) observed in Ch 1-5.
+# ============================================================
+
+corpus_name: openstax_biology2e
+corpus_chapters:
+- 1
+- 2
+- 3
+- 4
+- 5
+min_font_size_for_baseline: 4.0
+baseline_method: mode
+body_size_fallback: 9.0
+min_blocks_for_page_baseline: 15
+bold_indicator_strings:
+- Bold
+- bold
+- Black
+- Heavy
+- Demi
+ratio_thresholds:
+- 0.5
+- 0.9
+- 1.1
+- 1.35
+- 1.6
+- 2.0
+- 3.5
+chapter_number_ratio_threshold: 3.75
+page_width: 612.0
+page_height: 792.0
+left_margin: 72.0
+right_margin: 80.0
+column_split_x: 305.0
+left_col_x0: 72.0
+left_col_x1: 267.0
+right_col_x0: 317.0
+right_col_x1: 532.0
+full_width_threshold: 0.85
+single_col_block_threshold: 3
+sidebar_labels:
+- CAREER CONNECTION
+- EVOLUTION CONNECTION
+- LINK TO LEARNING
+- VISUAL CONNECTION
+header_zone_height: 29.1
+footer_zone_height: 38.5
+tolerance_pt: 5.0
+page_number_pattern: \d+
+gap_line_pt: 0.9
+gap_para_pt: 7.2
+gap_section_pt: 13.02
+line_continuation_factor: 1.3
+para_break_factor: 1.5
