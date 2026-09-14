@@ -1,0 +1,12 @@
+strategy: eluc_section_aware
+
+# Boundary control
+max_chunk_chars: 1400
+min_block_chars: 5
+
+# Sidebar handling
+sidebar_atomic: true
+
+# Reproducibility metadata
+corpus_name: openstax_biology2e
+corpus_chapters: [1, 2, 3, 4, 5]
