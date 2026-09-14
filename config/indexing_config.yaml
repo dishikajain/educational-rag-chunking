@@ -1,0 +1,5 @@
+embedding_dimension: 768
+distance_metric: "cosine"
+index_batch_size: 256
+reset_collection_on_run: true
+storage_path: "data/chroma_db"
