@@ -104,15 +104,13 @@ def run_indexing():
     # 6. Indexing
     logger.info("Indexing baseline collection into ChromaDB...")
     start_time = time.time()
-    baseline_collection_name = sanitize_collection_name("baseline_fixed_size", embed_config.model_name)
-    baseline_report = index_document(baseline_embedded, index_config, baseline_collection_name, chroma_db_dir)
-    logger.info(f"Baseline indexing complete in {time.time() - start_time:.2f}s. Collection: {baseline_collection_name}, Indexed items: {baseline_report.chunks_inserted}")
+    baseline_report = index_document(baseline_embedded, index_config)
+    logger.info(f"Baseline indexing complete in {time.time() - start_time:.2f}s. Collection: {baseline_report.collection_name}, Indexed items: {baseline_report.chunks_inserted}")
     
     logger.info("Indexing ELUC collection into ChromaDB...")
     start_time = time.time()
-    eluc_collection_name = sanitize_collection_name("eluc_section_aware", embed_config.model_name)
-    eluc_report = index_document(eluc_embedded, index_config, eluc_collection_name, chroma_db_dir)
-    logger.info(f"ELUC indexing complete in {time.time() - start_time:.2f}s. Collection: {eluc_collection_name}, Indexed items: {eluc_report.chunks_inserted}")
+    eluc_report = index_document(eluc_embedded, index_config)
+    logger.info(f"ELUC indexing complete in {time.time() - start_time:.2f}s. Collection: {eluc_report.collection_name}, Indexed items: {eluc_report.chunks_inserted}")
     
     logger.info("Offline corpus indexing complete!")
 
