@@ -6,30 +6,30 @@ class GenerationConfig(BaseModel):
     model_config = {"extra": "forbid", "strict": True}
     
     model_name: str
-    temperature: float
-    thinking_budget: int
+    seed: int
+    thinking_level: str
     max_output_tokens: int
     system_instruction: str
 
     @field_validator('model_name')
     @classmethod
     def validate_model_name(cls, v: str) -> str:
-        if v != "gemini-2.5-flash":
-            raise ValueError(f"model_name must be exactly 'gemini-2.5-flash', got {v}")
+        if v != "gemini-3.6-flash":
+            raise ValueError(f"model_name must be exactly 'gemini-3.6-flash', got {v}")
         return v
 
-    @field_validator('temperature')
+    @field_validator('seed')
     @classmethod
-    def validate_temperature(cls, v: float) -> float:
-        if v != 0.0:
-            raise ValueError(f"temperature must be exactly 0.0, got {v}")
+    def validate_seed(cls, v: int) -> int:
+        if v != 42:
+            raise ValueError(f"seed must be exactly 42, got {v}")
         return v
 
-    @field_validator('thinking_budget')
+    @field_validator('thinking_level')
     @classmethod
-    def validate_thinking_budget(cls, v: int) -> int:
-        if v != 0:
-            raise ValueError(f"thinking_budget must be exactly 0, got {v}")
+    def validate_thinking_level(cls, v: str) -> str:
+        if v != "minimal":
+            raise ValueError(f"thinking_level must be exactly 'minimal', got {v}")
         return v
 
     @field_validator('max_output_tokens')

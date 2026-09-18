@@ -1,6 +1,6 @@
-model_name: "gemini-2.5-flash"
-temperature: 0.0
-thinking_budget: 0
+model_name: "gemini-3.6-flash"
+seed: 42
+thinking_level: "minimal"
 max_output_tokens: 1024
 system_instruction: >
   You are an educational assistant answering questions strictly from the supplied reference context.

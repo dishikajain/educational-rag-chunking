@@ -36,13 +36,13 @@ class GeminiGenerator:
             
         prompt = self._construct_prompt(question, chunks)
         
-        # Setup generation config with thinking budget
+        # Setup generation config with thinking level
         gen_config = types.GenerateContentConfig(
-            temperature=self.config.temperature,
+            seed=self.config.seed,
             max_output_tokens=self.config.max_output_tokens,
             system_instruction=self.config.system_instruction,
             thinking_config=types.ThinkingConfig(
-                thinking_budget=self.config.thinking_budget
+                thinking_level=self.config.thinking_level
             )
         )
         
@@ -59,8 +59,8 @@ class GeminiGenerator:
             raise RuntimeError("Gemini returned an empty response")
             
         metadata = {
-            "temperature": self.config.temperature,
-            "thinking_budget": self.config.thinking_budget,
+            "seed": self.config.seed,
+            "thinking_level": self.config.thinking_level,
             "max_output_tokens": self.config.max_output_tokens,
             "system_instruction": self.config.system_instruction
         }

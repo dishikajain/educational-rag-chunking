@@ -11,9 +11,9 @@ from src.generation.models import GenerationResult
 @pytest.fixture
 def valid_config_dict():
     return {
-        "model_name": "gemini-2.5-flash",
-        "temperature": 0.0,
-        "thinking_budget": 0,
+        "model_name": "gemini-3.6-flash",
+        "seed": 42,
+        "thinking_level": "minimal",
         "max_output_tokens": 1024,
         "system_instruction": "Test instruction"
     }
@@ -55,13 +55,13 @@ class TestConfiguration:
         with pytest.raises(ValueError):
             GenerationConfig(**valid_config_dict)
 
-    def test_invalid_temperature(self, valid_config_dict):
-        valid_config_dict["temperature"] = 0.5
+    def test_invalid_seed(self, valid_config_dict):
+        valid_config_dict["seed"] = 100
         with pytest.raises(ValueError):
             GenerationConfig(**valid_config_dict)
 
-    def test_invalid_thinking_budget(self, valid_config_dict):
-        valid_config_dict["thinking_budget"] = 1
+    def test_invalid_thinking_level(self, valid_config_dict):
+        valid_config_dict["thinking_level"] = "high"
         with pytest.raises(ValueError):
             GenerationConfig(**valid_config_dict)
 
@@ -71,7 +71,7 @@ class TestConfiguration:
             GenerationConfig(**valid_config_dict)
 
     def test_missing_required_fields(self, valid_config_dict):
-        del valid_config_dict["temperature"]
+        del valid_config_dict["seed"]
         with pytest.raises(ValueError):
             GenerationConfig(**valid_config_dict)
 
@@ -149,21 +149,21 @@ class TestGenerator:
         # Verify mocked API request
         mock_client.models.generate_content.assert_called_once()
         call_args = mock_client.models.generate_content.call_args
-        assert call_args.kwargs['model'] == "gemini-2.5-flash"
+        assert call_args.kwargs['model'] == "gemini-3.6-flash"
         gen_config = call_args.kwargs['config']
-        assert gen_config.temperature == 0.0
+        assert gen_config.seed == 42
         assert gen_config.max_output_tokens == 1024
         assert gen_config.system_instruction == mock_config.system_instruction
-        assert gen_config.thinking_config.thinking_budget == 0
+        assert gen_config.thinking_config.thinking_level.name == "MINIMAL"
         
         # Verify GenerationResult
         assert isinstance(result, GenerationResult)
         assert result.answer == "This is a mocked answer."
         assert result.original_question == "What is it?"
-        assert result.model_identifier == "gemini-2.5-flash"
+        assert result.model_identifier == "gemini-3.6-flash"
         assert result.prompt_used == call_args.kwargs['contents']
-        assert result.metadata["temperature"] == 0.0
-        assert result.metadata["thinking_budget"] == 0
+        assert result.metadata["seed"] == 42
+        assert result.metadata["thinking_level"] == "minimal"
         assert result.metadata["max_output_tokens"] == 1024
         assert result.metadata["system_instruction"] == mock_config.system_instruction
         
