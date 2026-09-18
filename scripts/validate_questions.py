@@ -145,8 +145,9 @@ def validate_dataset(jsonl_path, schema_path, config_path, allow_empty=False):
         target_range = chap_targets[chap]["range"]
         if count < target_range[0] or count > target_range[1]:
             errors.append(f"Chapter {chap} count {count} not in {target_range}")
-        if len(chapter_sections[chap]) < min_sections:
-            errors.append(f"Chapter {chap} has only {len(chapter_sections[chap])} distinct sections represented, need at least {min_sections}")
+        actual_min = min(min_sections, len(VALID_SECTIONS[chap]))
+        if len(chapter_sections[chap]) < actual_min:
+            errors.append(f"Chapter {chap} has only {len(chapter_sections[chap])} distinct sections represented, need at least {actual_min}")
 
     type_targets = config.get("type_targets", {})
     for qt, targets in type_targets.items():
