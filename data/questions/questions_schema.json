@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "question_id",
+    "question",
+    "chapter",
+    "section",
+    "section_title",
+    "question_type",
+    "difficulty",
+    "reference_answer",
+    "source_passage",
+    "source_page_range",
+    "answer_grounding",
+    "requires_outside_knowledge",
+    "created_by",
+    "creation_date"
+  ],
+  "properties": {
+    "question_id": {
+      "type": "string",
+      "pattern": "^Q\\d{3}$"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 250
+    },
+    "chapter": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "section": {
+      "type": "string",
+      "minLength": 1
+    },
+    "section_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "question_type": {
+      "type": "string",
+      "enum": [
+        "factual_lookup",
+        "definition",
+        "explanation_conceptual",
+        "relationship_comparison",
+        "application_inference"
+      ]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ]
+    },
+    "reference_answer": {
+      "type": "string",
+      "minLength": 50
+    },
+    "source_passage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_page_range": {
+      "type": "string",
+      "minLength": 1
+    },
+    "answer_grounding": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requires_outside_knowledge": {
+      "type": "boolean",
+      "const": false
+    },
+    "created_by": {
+      "type": "string",
+      "const": "manual_annotation"
+    },
+    "creation_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "patternProperties": {
+    "^relevant_chunk_ids_.*$": {
+      "not": {}
+    }
+  },
+  "additionalProperties": false
+}

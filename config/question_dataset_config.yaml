@@ -1,0 +1,82 @@
+# Phase 13 Question Dataset Configuration
+
+seed: 42
+target_count: 50
+acceptable_range: [45, 60]
+minimum_section_coverage_per_chapter: 3
+
+# Chapter targets and ranges
+chapter_targets:
+  1:
+    target: 10
+    range: [8, 11]
+  2:
+    target: 10
+    range: [9, 12]
+  3:
+    target: 10
+    range: [9, 12]
+  4:
+    target: 11
+    range: [9, 12]
+  5:
+    target: 9
+    range: [8, 11]
+
+# Question type targets and ranges
+type_targets:
+  factual_lookup:
+    target: 10
+    range: [8, 12]
+  definition:
+    target: 10
+    range: [8, 12]
+  explanation_conceptual:
+    target: 12
+    range: [10, 14]
+  relationship_comparison:
+    target: 10
+    range: [8, 12]
+  application_inference:
+    target: 8
+    range: [6, 10]
+
+# Difficulty targets and ranges
+difficulty_targets:
+  easy:
+    target: 15
+    range: [13, 17]
+  medium:
+    target: 20
+    range: [18, 22]
+  hard:
+    target: 15
+    range: [13, 17]
+
+# Type x Difficulty cross-tabulation targets
+type_difficulty_targets:
+  factual_lookup:
+    easy: 8
+    medium: 2
+    hard: 0
+  definition:
+    easy: 5
+    medium: 5
+    hard: 0
+  explanation_conceptual:
+    easy: 2
+    medium: 8
+    hard: 2
+  relationship_comparison:
+    easy: 0
+    medium: 4
+    hard: 6
+  application_inference:
+    easy: 0
+    medium: 1
+    hard: 7
+
+validation_constraints:
+  no_relevant_chunk_ids: true
+  requires_outside_knowledge_false: true
+  created_by_manual_annotation: true
