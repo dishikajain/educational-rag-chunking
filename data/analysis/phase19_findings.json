@@ -1,0 +1,52 @@
+﻿{
+    "research_objective": "Evaluate whether and how different document chunking strategies affect retrieval performance in educational RAG question answering.",
+    "experimental_context": {
+        "dataset_size": 50,
+        "observations": 250,
+        "metrics": ["recall_at_1", "recall_at_3", "recall_at_5", "mrr_at_5"],
+        "strategies": [
+            "baseline_fixed_size",
+            "eluc_section_aware",
+            "recursive_character",
+            "paragraph_based",
+            "heading_based"
+        ]
+    },
+    "key_findings": [
+        {
+            "id": "F1",
+            "theme": "Descriptive Performance",
+            "finding": "Heading-based and Paragraph-based strategies consistently showed higher observed retrieval performance than arbitrary character-based strategies across all metrics."
+        },
+        {
+            "id": "F2",
+            "theme": "Statistical Significance",
+            "finding": "The omnibus tests provide evidence against the null hypothesis of no difference across strategies for all four metrics (Friedman p < 0.001)."
+        },
+        {
+            "id": "F3",
+            "theme": "Specific Strategy Comparisons",
+            "finding": "Heading-based produced higher observed values than Fixed-size, with statistically significant paired differences across all evaluated metrics. Fixed-size and Recursive Character chunking showed no significant differences from each other."
+        },
+        {
+            "id": "F4",
+            "theme": "Effect Size Variation",
+            "finding": "The Friedman effect-size estimates increased from Recall@1 through Recall@5, indicating that the degree of between-strategy rank differentiation observed in this dataset was larger at higher retrieval cutoffs."
+        }
+    ],
+    "structural_interpretation": {
+        "finding": "The observed pattern is consistent with the possibility that preserving document-level discourse boundaries affects retrieval matching."
+    },
+    "limitations": [
+        "Restricted to Chapters 1-5 of a single educational textbook.",
+        "Small dataset of 50 manually curated questions.",
+        "Fixed embedding model and static retrieval configuration (top_k=5, cosine similarity).",
+        "Evaluation focuses strictly on retrieval success (Recall/MRR) without end-to-end LLM generation evaluation.",
+        "Provenance-derived evaluation may penalize strategies that find correct alternative source text."
+    ],
+    "future_work": [
+        "End-to-end evaluation of generated answer quality.",
+        "Validation across diverse non-educational domains.",
+        "Testing with advanced retrieval architectures such as neural reranking and hybrid search."
+    ]
+}
