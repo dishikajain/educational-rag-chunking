@@ -1,0 +1,22 @@
+strategy: recursive_character
+chunk_size: 350
+chunk_overlap: 40
+min_chunk_size: 70
+separators:
+- '
+
+
+  '
+- '
+
+  '
+- '. '
+- ' '
+- ''
+corpus_name: openstax_biology2e
+corpus_chapters:
+- 1
+- 2
+- 3
+- 4
+- 5

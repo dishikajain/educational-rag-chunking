@@ -6,6 +6,30 @@ import numpy as np
 import pytest
 
 
+@pytest.fixture(autouse=True)
+def mock_sentence_transformer(monkeypatch):
+    import src.embedding.embedder
+    monkeypatch.setattr(src.embedding.embedder, "SentenceTransformer", MockSentenceTransformer)
+
+
+@pytest.fixture(autouse=True)
+def mock_sentence_transformer(monkeypatch):
+    import src.embedding.embedder
+    monkeypatch.setattr(src.embedding.embedder, "SentenceTransformer", MockSentenceTransformer)
+
+
+@pytest.fixture(autouse=True)
+def mock_sentence_transformer(monkeypatch):
+    import src.embedding.embedder
+    monkeypatch.setattr(src.embedding.embedder, "SentenceTransformer", MockSentenceTransformer)
+
+
+@pytest.fixture(autouse=True)
+def mock_sentence_transformer(monkeypatch):
+    import src.embedding.embedder
+    monkeypatch.setattr(src.embedding.embedder, "SentenceTransformer", MockSentenceTransformer)
+
+
 class MockSentenceTransformer:
     def __init__(self, model_name_or_path, revision=None, **kwargs):
         self.max_seq_length = 512
@@ -66,10 +90,7 @@ class MockSentenceTransformer:
         )
 
 
-st_mock = MagicMock()
-st_mock.SentenceTransformer = MockSentenceTransformer
 
-sys.modules["sentence_transformers"] = st_mock
 
 
 from src.preprocessing.models import ProvenanceSpan

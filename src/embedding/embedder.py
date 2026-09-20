@@ -1,4 +1,4 @@
-import logging
+﻿import logging
 from typing import Union
 
 import numpy as np
@@ -12,15 +12,16 @@ except ImportError as e:
 
 from src.chunking.models import BaselineChunkDocument
 from src.eluc.models import ELUCChunkDocument
+from src.recursive_chunking.models import RecursiveChunkDocument
+from src.paragraph_chunking.models import ParagraphChunkDocument
+from src.heading_chunking.models import HeadingChunkDocument
 from src.embedding.config import EmbeddingConfig
 from src.embedding.models import EmbeddedChunk, EmbeddedChunkDocument
 
-
 logger = logging.getLogger(__name__)
 
-
 def embed_document(
-    doc: Union[BaselineChunkDocument, ELUCChunkDocument],
+    doc: Union[BaselineChunkDocument, ELUCChunkDocument, RecursiveChunkDocument, ParagraphChunkDocument, HeadingChunkDocument],
     config: EmbeddingConfig,
 ) -> EmbeddedChunkDocument:
 

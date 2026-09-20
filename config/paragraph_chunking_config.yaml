@@ -1,0 +1,12 @@
+strategy: paragraph_based
+max_chunk_chars: 1400
+paragraph_soft_min: 150
+min_chunk_chars: 70
+min_block_chars: 5
+corpus_name: openstax_biology2e
+corpus_chapters:
+- 1
+- 2
+- 3
+- 4
+- 5

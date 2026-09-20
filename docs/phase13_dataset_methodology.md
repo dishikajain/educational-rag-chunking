@@ -333,7 +333,7 @@ The Phase 13 validation script and pytest tests must actively assert the absence
 Questions must be created by reading the raw source text — the PDF or the Phase 3 preprocessed `full_text` — and writing questions based on what is read. Chunk boundaries, retrieval results, and ChromaDB collections must not be consulted at any point during Phase 13.
 
 ### Step 1: Source Reading
-The annotator reads each chapter section from the original PDF (pages 31–171 corresponding to Chapters 1–5) or from the Phase 3 preprocessed `full_text`.
+The annotator reads each chapter section from the original PDF (pages 30–171 corresponding to Chapters 1–5) or from the Phase 3 preprocessed `full_text`.
 
 ### Step 2: Candidate Pool Generation
 Generate approximately **80–90 candidate questions** (a 1.6–1.8× surplus over the 50-question target). Each candidate is assigned all required metadata fields including `source_passage` and a human-written `reference_answer`. Candidates are written to `data/questions/candidates.jsonl`.
@@ -504,3 +504,13 @@ config/
 | **Phase 14 contamination** — `relevant_chunk_ids_*` fields added prematurely | High | Schema test enforces absence; validation script checks all records |
 | **Corpus scope drift** — question inadvertently references content beyond Chapter 5 | Medium | `requires_outside_knowledge: false` validation; annotator reads only Chapters 1–5 |
 | **Model-generated reference answers** — introduces circular evaluation | High | Explicitly prohibited; all reference answers are human-written from the source passage |
+
+---
+
+## N. Erratum: Post-Freeze Metadata Corrections
+
+Following a strict block-level corpus provenance audit during Phase 14B, it was discovered that three questions were manually annotated with off-by-one physical page numbers. The source_page_range metadata pointed to pages where the corresponding section (and source text) was entirely absent. The following in-place metadata corrections were made to the frozen dataset to preserve dataset viability while maintaining the original text:
+
+- **Q022**: source_page_range corrected from "84" to "83" (Section 3.1).
+- **Q033**: source_page_range corrected from "124" to "123" (Section 4.2).
+- **Q050**: source_page_range corrected from "172" to "171" (Section 5.3).
