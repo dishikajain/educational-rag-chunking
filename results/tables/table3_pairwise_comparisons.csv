@@ -1,0 +1,41 @@
+Metric,Strategy A,Strategy B,Median Difference,CI Lower,CI Upper,Wilcoxon Statistic,Unadjusted p-value,Holm-adjusted p-value,Rank-Biserial Correlation
+recall_at_1,Fixed-size,ELUC / Section-aware,0.000,0.000,0.000,3.000,1.20e-03,5.98e-03,-0.950
+recall_at_1,Fixed-size,Recursive character,0.000,0.000,0.000,16.000,7.79e-01,1.00e+00,-0.111
+recall_at_1,Fixed-size,Paragraph-based,0.000,0.000,0.000,6.500,5.75e-04,4.60e-03,-0.924
+recall_at_1,Fixed-size,Heading-based,0.000,-0.041,0.000,4.000,1.60e-04,1.44e-03,-0.962
+recall_at_1,ELUC / Section-aware,Recursive character,0.000,0.000,0.000,3.000,7.65e-04,5.10e-03,0.956
+recall_at_1,ELUC / Section-aware,Paragraph-based,0.000,0.000,0.000,64.000,8.36e-01,1.00e+00,0.059
+recall_at_1,ELUC / Section-aware,Heading-based,0.000,0.000,0.000,15.500,2.00e-02,8.02e-02,-0.705
+recall_at_1,Recursive character,Paragraph-based,0.000,0.000,0.000,8.000,7.29e-04,5.10e-03,-0.906
+recall_at_1,Recursive character,Heading-based,0.000,-0.043,0.000,6.000,1.39e-04,1.39e-03,-0.948
+recall_at_1,Paragraph-based,Heading-based,0.000,0.000,0.000,43.000,3.62e-02,1.09e-01,-0.547
+recall_at_3,Fixed-size,ELUC / Section-aware,0.000,-0.118,0.000,2.000,1.57e-05,1.41e-04,-0.988
+recall_at_3,Fixed-size,Recursive character,0.000,0.000,0.000,102.000,9.11e-01,9.11e-01,0.029
+recall_at_3,Fixed-size,Paragraph-based,0.000,-0.087,0.000,22.000,9.66e-05,5.79e-04,-0.875
+recall_at_3,Fixed-size,Heading-based,-0.060,-0.172,0.000,4.000,5.81e-06,5.81e-05,-0.980
+recall_at_3,ELUC / Section-aware,Recursive character,0.000,0.000,0.128,20.000,7.81e-05,5.47e-04,0.886
+recall_at_3,ELUC / Section-aware,Paragraph-based,0.000,0.000,0.012,27.500,2.22e-03,6.65e-03,0.762
+recall_at_3,ELUC / Section-aware,Heading-based,0.000,0.000,0.000,43.500,3.81e-02,7.62e-02,-0.542
+recall_at_3,Recursive character,Paragraph-based,0.000,-0.064,0.000,28.000,1.79e-04,8.95e-04,-0.840
+recall_at_3,Recursive character,Heading-based,-0.037,-0.177,0.000,17.000,2.27e-05,1.82e-04,-0.916
+recall_at_3,Paragraph-based,Heading-based,0.000,-0.057,0.000,39.500,5.49e-04,2.19e-03,-0.775
+recall_at_5,Fixed-size,ELUC / Section-aware,-0.093,-0.202,0.000,5.000,4.31e-06,3.02e-05,-0.977
+recall_at_5,Fixed-size,Recursive character,0.000,0.000,0.000,88.500,1.32e-01,2.64e-01,-0.359
+recall_at_5,Fixed-size,Paragraph-based,-0.083,-0.143,0.000,0.000,2.56e-06,2.31e-05,-1.000
+recall_at_5,Fixed-size,Heading-based,-0.139,-0.250,0.000,3.000,1.57e-06,1.57e-05,-0.988
+recall_at_5,ELUC / Section-aware,Recursive character,0.068,0.000,0.167,16.000,1.32e-05,6.58e-05,0.926
+recall_at_5,ELUC / Section-aware,Paragraph-based,0.000,0.000,0.000,72.500,2.68e-02,8.03e-02,0.517
+recall_at_5,ELUC / Section-aware,Heading-based,0.000,0.000,0.000,75.500,2.71e-01,2.71e-01,-0.281
+recall_at_5,Recursive character,Paragraph-based,-0.042,-0.127,0.000,11.500,8.40e-06,5.04e-05,-0.947
+recall_at_5,Recursive character,Heading-based,-0.112,-0.208,0.000,7.000,3.51e-06,2.81e-05,-0.970
+recall_at_5,Paragraph-based,Heading-based,0.000,-0.050,0.000,58.000,2.82e-03,1.13e-02,-0.670
+mrr_at_5,Fixed-size,ELUC / Section-aware,0.000,0.000,0.000,19.000,3.51e-02,2.34e-01,-0.638
+mrr_at_5,Fixed-size,Recursive character,0.000,0.000,0.000,18.000,9.83e-02,3.93e-01,-0.538
+mrr_at_5,Fixed-size,Paragraph-based,0.000,0.000,0.000,11.500,5.81e-03,5.23e-02,-0.808
+mrr_at_5,Fixed-size,Heading-based,0.000,0.000,0.000,16.500,2.62e-03,2.62e-02,-0.807
+mrr_at_5,ELUC / Section-aware,Recursive character,0.000,0.000,0.000,51.000,3.78e-01,7.56e-01,0.250
+mrr_at_5,ELUC / Section-aware,Paragraph-based,0.000,0.000,0.000,32.500,2.06e-01,6.19e-01,-0.381
+mrr_at_5,ELUC / Section-aware,Heading-based,0.000,0.000,0.000,15.000,3.18e-02,2.34e-01,-0.670
+mrr_at_5,Recursive character,Paragraph-based,0.000,0.000,0.000,18.000,5.42e-02,2.71e-01,-0.604
+mrr_at_5,Recursive character,Heading-based,0.000,0.000,0.000,30.500,2.92e-02,2.34e-01,-0.601
+mrr_at_5,Paragraph-based,Heading-based,0.000,0.000,0.000,35.000,4.60e-01,7.56e-01,-0.231

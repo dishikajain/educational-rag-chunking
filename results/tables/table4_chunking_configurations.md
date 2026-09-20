@@ -1,0 +1,7 @@
+| Strategy             | Primary Boundary Signal           | Relevant Size/Overlap Parameter   |   Total Formal Chunks Generated |
+|:---------------------|:----------------------------------|:----------------------------------|--------------------------------:|
+| Fixed-size           | Character position                | chunk_size=350, overlap=40        |                            1196 |
+| ELUC / Section-aware | Heading labels + is_section_break | max_chars=1400                    |                             473 |
+| Recursive character  | Text separators                   | chunk_size=350, overlap=40        |                            1302 |
+| Paragraph-based      | is_paragraph_break gap            | max_chars=1400                    |                             660 |
+| Heading-based        | Heading labels                    | max_chars=1400                    |                             407 |
