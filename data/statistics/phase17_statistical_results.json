@@ -1,0 +1,46 @@
+{
+    "recall_at_1": {
+        "metric": "recall_at_1",
+        "test": "Friedman",
+        "sample_size": 50,
+        "statistic": 44.85245901639359,
+        "p_value": 4.266921651346745e-09,
+        "effect_size_name": "Kendall_W",
+        "effect_size": 0.22426229508196793,
+        "significant_at_05": true,
+        "post_hoc_performed": true
+    },
+    "recall_at_3": {
+        "metric": "recall_at_3",
+        "test": "Friedman",
+        "sample_size": 50,
+        "statistic": 70.02298850574716,
+        "p_value": 2.244617709381713e-14,
+        "effect_size_name": "Kendall_W",
+        "effect_size": 0.3501149425287358,
+        "significant_at_05": true,
+        "post_hoc_performed": true
+    },
+    "recall_at_5": {
+        "metric": "recall_at_5",
+        "test": "Friedman",
+        "sample_size": 50,
+        "statistic": 81.6069565217391,
+        "p_value": 7.95219402103822e-17,
+        "effect_size_name": "Kendall_W",
+        "effect_size": 0.40803478260869547,
+        "significant_at_05": true,
+        "post_hoc_performed": true
+    },
+    "mrr_at_5": {
+        "metric": "mrr_at_5",
+        "test": "Friedman",
+        "sample_size": 50,
+        "statistic": 18.77108433734931,
+        "p_value": 0.0008716457158224372,
+        "effect_size_name": "Kendall_W",
+        "effect_size": 0.09385542168674656,
+        "significant_at_05": true,
+        "post_hoc_performed": true
+    }
+}
