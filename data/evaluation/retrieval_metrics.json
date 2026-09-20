@@ -1,0 +1,37 @@
+{
+    "baseline_fixed_size": {
+        "recall@1": 0.023616845143160932,
+        "recall@3": 0.06353904483176552,
+        "recall@5": 0.09735945598529609,
+        "mrr@5": 0.31733333333333336,
+        "evaluated_questions": 50
+    },
+    "eluc_section_aware": {
+        "recall@1": 0.07133333333333333,
+        "recall@3": 0.19015873015873017,
+        "recall@5": 0.25632539682539673,
+        "mrr@5": 0.39299999999999996,
+        "evaluated_questions": 50
+    },
+    "recursive_character": {
+        "recall@1": 0.02486858735134597,
+        "recall@3": 0.0667841717669304,
+        "recall@5": 0.11107277205553069,
+        "mrr@5": 0.357,
+        "evaluated_questions": 50
+    },
+    "paragraph_based": {
+        "recall@1": 0.07334199134199135,
+        "recall@3": 0.1371480644958906,
+        "recall@5": 0.21456524876090094,
+        "mrr@5": 0.434,
+        "evaluated_questions": 50
+    },
+    "heading_based": {
+        "recall@1": 0.10159199134199136,
+        "recall@3": 0.21677597402597398,
+        "recall@5": 0.2742164502164502,
+        "mrr@5": 0.46399999999999997,
+        "evaluated_questions": 50
+    }
+}
