@@ -1,4 +1,4 @@
-from typing import List, Optional, Set
+from typing import List
 import logging
 from src.preprocessing.models import PreprocessedDocument, PreprocessedBlock, ProvenanceSpan
 from src.eluc.config import ELUCChunkingConfig
